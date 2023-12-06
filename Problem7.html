@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <script>
+        async function GetData() {
+            const url = 'https://fakestoreapi.com/users';
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log(data);
+                RenderItem(data);
+            } catch (error) {
+                console.error('Could not fetch the data:', error);
+            }
+        }
+
+        function RenderItem(users) {
+            const usersContainer = document.getElementById('usersContainer');
+            let html = users.map(user => `
+                <tr>
+                    <td>${user.email}</td>
+                    <td>${user.username}</td>
+                    <td>${user.password}</td>
+                    <td>${user.name.firstname}</td>
+                    <td>${user.name.lastname}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.address.street}, ${user.address.city}</td>
+                </tr>
+            `).join('');
+            usersContainer.innerHTML = html;
+        }
+
+        document.addEventListener('DOMContentLoaded', GetData);
+    </script>
+</head>
+<style>
+    tr{
+        width: 100%;
+    }
+</style>
+<body>
+    <h1>User Management</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody id="usersContainer">
+          
+        </tbody>
+    </table>
+</body>
+</html>

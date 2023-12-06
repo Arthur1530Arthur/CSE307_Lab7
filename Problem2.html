@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change</title>
+</head>
+
+<body>
+    <p class="example" style="color: greenyellow; background-color: rgb(37, 150, 190);">This is the first paragraph with
+        class "example".</p>
+    <p style="font: small">This is another paragraph.</p>
+    <a href="a" target="blank">Link with target attribute</a>
+    <div>
+        <button id="changeButton">Change</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('changeButton').addEventListener('click', function () {
+
+                const Example = document.querySelector('p.example');
+                Example.style.backgroundColor = 'yellow';
+                Example.style.color = 'blue';
+
+                const LinkWithTarget = document.querySelector('a[target]');
+                LinkWithTarget.style.border = '1px solid red';
+
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Replace all href values</title>
+    </head>
+    <body>
+        <a href="https://codelearn.io/learning/object-oriented-programming-in-java?tab=syllabus">abc</a>
+        <a href="https://codelearn.io/learning/object-oriented-programming-in-java?tab=syllabus">bcd</a>
+        <a href="https://codelearn.io/learning/object-oriented-programming-in-java?tab=syllabus">cde</a>
+        <script>
+            function linkthaythe(newhref){
+                const oldlink=document.querySelectorAll('a');
+                oldlink.forEach(function(link){
+                    link.href = newhref;
+                });
+            }
+            linkthaythe('https://moodle.eiu.edu.vn/login/index.php');
+        </script>
+    </body>
+</html>

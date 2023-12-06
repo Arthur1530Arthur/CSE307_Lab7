@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem3</title>
+</head>
+
+<body>
+    <p class="example1" style="background-color: rgb(98, 187, 219); border: solid ">This is the first paragraph with
+        class"example"</p>
+    <p class="example2" style="background-color: rgb(98, 187, 219); border: solid ">Another paragraph with class"example"</p>
+
+    <p>This is a regular paragraph.</p>
+
+    <p><a href="a">Link with target attribute</a></p>
+    <p><a href="a">Another link with targer attribute</a></p>
+
+    <h1>Title 1</h1>
+    <h2>Title 2</h2>
+    <button id="button" onclick="ChangeColor()">Change</button>
+</body>
+<script>
+    function ChangeColor() {
+        const Example1 = document.querySelector('p.example1');
+        Example1.style.backgroundColor = 'yellow';
+        Example1.style.color = 'green';
+        const Example2 = document.querySelector('p.example2');
+        Example2.style.color='green';
+        const LinkWithTarget = document.querySelectorAll('a');
+        console.log(LinkWithTarget.length);
+        for (i = 0; i < LinkWithTarget.length; i++)
+            LinkWithTarget[i].style.border = '1px solid red'
+    }
+
+</script>
+
+</html>
